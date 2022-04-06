@@ -50,7 +50,8 @@ public class Menu {
 			
 			switch(input) {
 			case 1: {
-				addRecord();
+				//addRecord();
+				inputRecords();
 				
 				break;
 			}
