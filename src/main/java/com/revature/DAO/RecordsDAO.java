@@ -43,9 +43,12 @@ public class RecordsDAO implements RecordsDAOInterface {
 		case 2: {
 			
 			
+		break;
+		}
+		default: {
+			
 			
 		}
-		
 		
 		}
 		return recordsList;
