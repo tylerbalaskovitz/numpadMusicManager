@@ -14,6 +14,9 @@ public class Menu {
 
 		
 		while (displayMenu) {
+			System.out.print("\033[H\033[2J");
+			System.out.flush();
+			
 			System.out.println("==========================================================");
 			System.out.println("===========Welcome the NumPad Music Manager===============");
 			System.out.println("==========================================================");
@@ -51,7 +54,7 @@ public class Menu {
 			switch(input) {
 			case 1: {
 				//addRecord();
-				inputRecords();
+				RecordsDAO inputRecords();
 				
 				break;
 			}
