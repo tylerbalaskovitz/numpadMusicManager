@@ -36,7 +36,7 @@ public class Menu {
 			System.out.println("----View Your Music------");
 			System.out.println("-------------------------");
 			
-			System.out.println("4: View Records by Alphabetized");
+			System.out.println("4: View Records by Name");
 			System.out.println("5: View Records by Genre");
 			System.out.println("6: View Records by Type");
 			
