@@ -2,8 +2,11 @@ package com.revature.models;
 
 import java.util.Scanner;
 
+import com.revature.DAO.LoginDAO;
+
 public class LoginMenu {
 
+	LoginDAO lDAO = new LoginDAO();
 	
 	//creating a method to control the login menu
 	public void displayLoginMenu() {
@@ -33,11 +36,18 @@ public class LoginMenu {
 		break;
 		}
 		case 2: {
+			
+			//The second case is used for adding a new employee to the table
+			
 			System.out.println("Create a new Username");
 			String newUsername = scan.nextLine();
 			
 			System.out.println("Create a new Password");
 			String newPassword = scan.nextLine();
+			
+			Login log = new Login();
+			
+			lDAO.addUsername(login, login_id);
 			
 			
 		break;	
