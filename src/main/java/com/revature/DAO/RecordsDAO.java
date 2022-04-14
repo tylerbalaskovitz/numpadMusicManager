@@ -21,40 +21,8 @@ public class RecordsDAO implements RecordsDAOInterface {
 		//Clearing the console's code:
 		
 
-	@Override
-	public void addArtist() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addAlbumName() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addGenre1() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addGenre2() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addGenre3() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addRecordSpeed() {
-		// TODO Auto-generated method stub
-		
+	
+		return null;
 	}
 
 	@Override
@@ -78,7 +46,7 @@ public class RecordsDAO implements RecordsDAOInterface {
 			//ArrayList with them. The ResultSet (rs) from above is holding our data
 			while (rs.next()) {
 				
-				RecordNames r = new RecordList(
+				RecordNames r = new RecordNames(
 						
 						rs.getString("artist_name"),
 						rs.getString("album_name"),
@@ -101,6 +69,18 @@ public class RecordsDAO implements RecordsDAOInterface {
 		
 		
 		return null;
+	}
+
+	@Override
+	public void addMusic() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteMusic() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

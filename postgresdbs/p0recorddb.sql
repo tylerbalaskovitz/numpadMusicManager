@@ -9,8 +9,10 @@ record_speed TEXT --USING A TEXTtype for the record speed because I'm not doing 
 --and not an int.
 );
 
+DROP TABLE record_names
+
 CREATE TABLE record_sales (
-record__sales_id serial PRIMARY KEY, --There IS NO MORE composite KEY EACH record will be identified BY a UNIQUE number
+record_sales_id serial PRIMARY KEY, --There IS NO MORE composite KEY EACH record will be identified BY a UNIQUE number
 location_sale TEXT,
 sale_price TEXT, 
 buyer_name TEXT,
@@ -19,8 +21,12 @@ record_name_id_fk int REFERENCES record_names(record_id) ---FK used TO JOIN the 
 --Just some basic text fields for the database one for sales and the other for deleting / 'selling' the record
 );
 
+DROP TABLE record_sales
+
 CREATE TABLE login_table (
 login_id serial PRIMARY KEY, --PRIMARY KEY so EACH USER can login TO the DATABASE.
 username TEXT,
 pword TEXT
 );
+
+

@@ -49,7 +49,7 @@ public class LoginMenu {
 			System.out.println("=================================================================");
 			System.out.println("Are you a good person?");
 			System.out.println("1. Yes, of course :)");
-			System.err.println("2. No, but I'm working on it :).");
+			System.out.println("2. No, but I'm working on it :).");
 				int trustCheck = scan.nextInt();
 				scan.nextLine();
 				switch(trustCheck) {
