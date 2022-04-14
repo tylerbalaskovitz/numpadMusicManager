@@ -6,11 +6,11 @@ public class LoginMenu {
 
 	
 	//creating a method to control the login menu
-	public void loginMenu() {
-	boolean loginMenu = true;
+	public void displayLoginMenu() {
+	boolean LoginMenu = true;
 	Scanner scan = new Scanner(System.in);
 	
-	while (loginMenu) {
+	while (LoginMenu) {
 		System.out.println("=======================================================");
 		System.out.println("====Welcome to the NumPad Music Manager Log in Menu====");
 		System.out.println("=======================================================");
@@ -49,7 +49,7 @@ public class LoginMenu {
 			System.out.println("=================================================================");
 			System.out.println("Are you a good person?");
 			System.out.println("1. Yes, of course :)");
-			System.err.println("2. No, but I'm working on it.");
+			System.err.println("2. No, but I'm working on it :).");
 				int trustCheck = scan.nextInt();
 				scan.nextLine();
 				switch(trustCheck) {

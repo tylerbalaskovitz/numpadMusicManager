@@ -3,6 +3,7 @@ package com.revature;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.revature.models.LoginMenu;
 import com.revature.models.Menu;
 
 public class Launcher {
@@ -23,6 +24,10 @@ public class Launcher {
 		}
 		
 		
+		
+		LoginMenu openLoginMenu = new LoginMenu();
+		
+		openLoginMenu.displayLoginMenu();
 		
 		
 		
