@@ -43,10 +43,31 @@ public class LoginMenu {
 		break;	
 		}
 		case 3: {
+			System.out.println("================================================================");
+			System.out.println("Welcome to the NRS (Naive Recovery System) of the NumPad Music==");
+			System.out.println("Manager. We are innovative in our security policies. ");
+			System.out.println("=================================================================");
 			System.out.println("Are you a good person?");
 			System.out.println("1. Yes, of course :)");
 			System.err.println("2. No, but I'm working on it.");
-			
+				int trustCheck = scan.nextInt();
+				scan.nextLine();
+				switch(trustCheck) {
+				case 1:{
+					System.out.println("I like that positive attitude. I hope this helps you");
+				
+					break;
+				}
+				case 2:{
+					System.out.println("I appreciate your honesty. That makes you a good person.");
+					
+					break;
+				}
+				default: {
+					System.out.println("It's okay, take your time, friend.");
+					break;
+				}
+				}
 		
 			break;
 		}
