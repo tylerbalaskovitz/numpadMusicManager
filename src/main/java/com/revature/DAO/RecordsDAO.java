@@ -1,7 +1,9 @@
 package com.revature.DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -53,7 +55,7 @@ public class RecordsDAO implements RecordsDAOInterface {
 						rs.getString("genre_type1"),
 						rs.getString("genre_type2"),
 						rs.getString("genre_type3"),
-						rs.getInt("record_speec"),
+						rs.getInt("record_speed"),
 						null
 						
 						
@@ -72,8 +74,37 @@ public class RecordsDAO implements RecordsDAOInterface {
 	}
 
 	@Override
-	public void addMusic() {
-		// TODO Auto-generated method stub
+	public void addMusic(RecordNames recordToAdd) {
+		//adding the try block to create a connection using the ConnectionUtil class we created in the .utils packaage
+		
+		try (Connection conn = ConnectionUtil.getConnection()){
+			
+			//this SQL statement uses the INSERT and INTO to put data into the SQL database so
+			//that we can add new information into the DBeaver Database.
+			
+			String sql = "insert into record_names (artist_name, album_name, genre_type1, genre_type2, genre_type3, record_speed)"
+					+ "values(?, ?, ?, ?, ?, ?);";
+			
+			//this prepared statement is used to vill in the variables in the SQL string above.
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, recordToAdd.getArtist_name());
+			ps.setString(2, recordToAdd.getAlbum_name());
+			ps.setString(3, recordToAdd.getGenre_type1());
+			ps.setString(4, recordToAdd.getGenre_type2());
+			ps.setString(5, recordToAdd.getGenre_type3());
+			ps.setString(6, recordToAdd.getRecord_speed());
+			
+			ps.executeUpdate();
+			
+			System.out.println("The artist" + recordToAdd.getArtist_name() + "was added. Their album" + recordToAdd.getAlbum_name() + "was added as well");
+			
+			
+		} catch (SQLException e) {
+			System.out.println("Something went awfully wrong");
+			e.printStackTrace();
+		}
+		
 		
 	}
 
