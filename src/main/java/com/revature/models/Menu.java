@@ -53,8 +53,43 @@ public class Menu {
 			
 			switch(input) {
 			case 1: {
-				//addRecord();
-				RecordsDAO inputRecords();
+
+				
+				//initializing the Scanner scan object.
+				Scanner scan = new Scanner(System.in);
+				
+				
+				//Takes the user's input to be used in the switch for adding a record
+				int input1 = scan.nextInt();
+				scan.nextLine();
+				//Helps the application move to the next line
+				System.out.println("===============================");
+				System.out.println("Would you like to add a record?");
+				System.out.println("1. Yes, add a record.");
+				System.out.println("2. No, back to the main menu");
+				System.out.println("===============================");
+				
+				switch(input1) {
+				
+				case 1: {
+				
+				
+				
+				break;
+				}
+				case 2: {
+					
+					
+				break;
+				}
+				default: {
+					
+					
+				}
+				
+				
+				
+			}
 				
 				break;
 			}

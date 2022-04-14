@@ -1,9 +1,13 @@
 package com.revature.DAO;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.revature.models.RecordNames;
+import com.revature.utils.ConnectionUtil;
 
 public class RecordsDAO implements RecordsDAOInterface {
 
@@ -15,43 +19,88 @@ public class RecordsDAO implements RecordsDAOInterface {
 	//Clear the console so things appear neat and orderly.
 	public ArrayList<RecordNames> inputRecords(){
 		//Clearing the console's code:
-		System.out.print("\033[H\033[2J");
-		System.out.flush();
 		
-		//initializing the Scanner scan object.
-		Scanner scan = new Scanner(System.in);
+
+	@Override
+	public void addArtist() {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void addAlbumName() {
+		// TODO Auto-generated method stub
 		
-		//Takes the user's input to be used in the switch for adding a record
-		int input = scan.nextInt();
-		scan.nextLine();
-		//Helps the application move to the next line
-		System.out.println("===============================");
-		System.out.println("Would you like to add a record?");
-		System.out.println("1. Yes, add a record.");
-		System.out.println("2. No, back to the main menu");
-		System.out.println("===============================");
+	}
+
+	@Override
+	public void addGenre1() {
+		// TODO Auto-generated method stub
 		
-		switch(input) {
+	}
+
+	@Override
+	public void addGenre2() {
+		// TODO Auto-generated method stub
 		
-		case 1: {
+	}
+
+	@Override
+	public void addGenre3() {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void addRecordSpeed() {
+		// TODO Auto-generated method stub
 		
-		recordsList.add(new RecordNames());
-		break;
-		}
-		case 2: {
+	}
+
+	@Override
+	public ArrayList<RecordNames> displayAllRecords() {
+		
+		try (Connection conn = ConnectionUtil.getConnection()){
 			
+			//This string sql represents of the SQL Statement
+			String sql = "select * from record_names;";
 			
-		break;
-		}
-		default: {
+			//A statement object is created to execute the query to the database.
+			Statement s = conn.createStatement();
 			
+			//Execute the query into a ResultSet object, which will hold all the data
+			ResultSet rs = s.executeQuery(sql);
+			
+			//This will instantiate an ArrayList to put our Employee objects into
+			ArrayList<RecordNames> recordNameList = new ArrayList<>();
+			
+			//This while loop is used to create the recordName object to populate the
+			//ArrayList with them. The ResultSet (rs) from above is holding our data
+			while (rs.next()) {
+				
+				RecordNames r = new RecordList(
+						
+						rs.getString("artist_name"),
+						rs.getString("album_name"),
+						rs.getString("genre_type1"),
+						rs.getString("genre_type2"),
+						rs.getString("genre_type3"),
+						rs.getInt("record_speec"),
+						null
+						
+						
+						);
+						
+				//finished the first part of this -- 
+				
+				
+			}
 			
 		}
 		
-		}
-		return recordsList;
+		
+		
+		return null;
 	}
 	
 }
