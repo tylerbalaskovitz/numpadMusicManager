@@ -20,7 +20,7 @@ record_name_id_fk int REFERENCES record_names(record_id) ---FK used TO JOIN the 
 );
 
 CREATE TABLE login_table (
-login_id serial PRIMARY KEY, --There IS NO MORE composite KEY EACH record will be identified BY a UNIQUE number
+login_id serial PRIMARY KEY, --PRIMARY KEY so EACH USER can login TO the DATABASE.
 username TEXT,
 pword TEXT
 );
