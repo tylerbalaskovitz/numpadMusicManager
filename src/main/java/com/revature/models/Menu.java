@@ -2,6 +2,8 @@ package com.revature.models;
 
 import java.util.Scanner;
 
+import com.revature.DAO.RecordsDAO;
+
 public class Menu {
 
 	
