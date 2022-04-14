@@ -18,3 +18,9 @@ buyer_address TEXT,
 record_name_id_fk int REFERENCES record_names(record_id) ---FK used TO JOIN the two TABLES together BY the PK in the record_names 
 --Just some basic text fields for the database one for sales and the other for deleting / 'selling' the record
 );
+
+CREATE TABLE login_table (
+login_id serial PRIMARY KEY, --There IS NO MORE composite KEY EACH record will be identified BY a UNIQUE number
+username TEXT,
+pword TEXT
+);
