@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import com.revature.models.LoginMenu;
 import com.revature.models.Menu;
+import com.revature.utils.ConnectionUtil;
 
 public class Launcher {
 
