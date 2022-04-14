@@ -18,7 +18,7 @@ public class Menu {
 			System.out.flush();
 			
 			System.out.println("==========================================================");
-			System.out.println("===========Welcome the NumPad Music Manager===============");
+			System.out.println("===========Welcome to the NumPad Music Manager============");
 			System.out.println("==========================================================");
 			
 			
