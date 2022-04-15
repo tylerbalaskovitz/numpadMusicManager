@@ -16,8 +16,7 @@ public class Menu {
 
 		
 		while (displayMenu) {
-			System.out.print("\033[H\033[2J");
-			System.out.flush();
+			
 			
 			System.out.println("==========================================================");
 			System.out.println("===========Welcome to the NumPad Music Manager============");
@@ -57,7 +56,7 @@ public class Menu {
 
 				
 				//initializing the Scanner scan object.
-				Scanner scan = new Scanner(System.in);
+				
 				
 				
 				//Takes the user's input to be used in the switch for adding a record
@@ -95,9 +94,7 @@ public class Menu {
 					System.out.println("Enter the speed of the record");
 					String SpeedName = scan.nextLine();
 					
-					RecordNames rec = new RecordNames(ArtName, AlbName, Gen1Name, Gen2Name, Gen3Name, SpeedName);
-				
-					RecordsDAO.addMusic(RecordNames)
+					
 					
 				break;
 				}
@@ -157,7 +154,7 @@ public class Menu {
 				break;
 			}
 			
-			}
+			
 			default: {
 				System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");			
 				System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");

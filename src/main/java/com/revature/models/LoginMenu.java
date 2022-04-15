@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.revature.DAO.LoginDAO;
+import com.revature.DAO.UserLoginDAO;
 
 public class LoginMenu {
 
+	UserLoginDAO ulDAO = new UserLoginDAO();
+	
 	LoginDAO lDAO = new LoginDAO();
 	
 	//creating a method to control the login menu
@@ -34,7 +37,31 @@ public class LoginMenu {
 		
 		System.out.println("Password:");
 		String password = scan.nextLine();
+		
+		
+		//making a call to the database to get values to check against what the user
+		//put into the scanner. Afterwards, values will be compared.
+		
+		boolean loginList = ulDAO.login(username, password);
+		
+		if (loginList = true) {
+			LoginMenu = false;
+		} else {
+			LoginMenu = true;
+		};
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		break;
+		
+		
 		}
 		case 2: {
 			
@@ -78,6 +105,12 @@ public class LoginMenu {
 				}
 				case 2:{
 					System.out.println("I appreciate your honesty. That makes you a good person.");
+					
+					ArrayList<Login> loginList = lDAO.displayUsername();
+					
+					System.out.println(loginList);
+					
+					
 					
 					break;
 				}

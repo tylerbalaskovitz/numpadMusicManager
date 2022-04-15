@@ -18,6 +18,14 @@ public class Login {
 		
 		
 	}
+	public Login(String pword) {
+		super();
+		this.pword = pword;
+	}
+	public Login() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Login(int login_id, String username, String pword) {
 		super();
 		this.login_id = login_id;
@@ -28,11 +36,11 @@ public class Login {
 	
 	
 
-	
 	public Login(String username, String pword) {
 		super();
 		this.username = username;
 		this.pword = pword;
+
 	}
 	public void setLogin_id(int login_id) {
 		this.login_id = login_id;

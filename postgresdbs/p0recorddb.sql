@@ -1,5 +1,5 @@
 CREATE TABLE record_names (
-record_id serial PRIMARY KEY, --The serial KEY FOR identifying the cord inserted INTO the table
+record_id serial UNIQUE PRIMARY KEY, --The serial KEY FOR identifying the cord inserted INTO the table
 artist_name TEXT,
 album_name TEXT, 
 genre_type1 TEXT,
@@ -14,7 +14,7 @@ SELECT * FROM record_names;
 DROP TABLE record_names;
 
 CREATE TABLE record_sales (
-record_sales_id serial PRIMARY KEY, --There IS NO MORE composite KEY EACH record will be identified BY a UNIQUE number
+record_sales_id serial UNIQUE PRIMARY KEY, --There IS NO MORE composite KEY EACH record will be identified BY a UNIQUE number
 location_sale TEXT,
 sale_price TEXT, 
 buyer_name TEXT,
@@ -28,7 +28,7 @@ SELECT * FROM record_sales;
 DROP TABLE record_sales;
 
 CREATE TABLE login_table (
-login_id serial PRIMARY KEY, --PRIMARY KEY so EACH USER can login TO the DATABASE.
+login_id serial UNIQUE PRIMARY KEY, --PRIMARY KEY so EACH USER can login TO the DATABASE.
 username TEXT UNIQUE,
 pword TEXT
 );

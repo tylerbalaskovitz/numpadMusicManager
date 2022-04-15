@@ -72,7 +72,7 @@ public class LoginDAO implements LoginDAOInterface {
 						rs.getString("pword")
 						);
 						
-				l.setUsername(sql);
+			
 				
 				loginList.add(l);
 				
