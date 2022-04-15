@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.revature.models.Login;
+import com.revature.models.LoginMenu;
+import com.revature.models.Menu;
 import com.revature.utils.ConnectionUtil;
 
 public class UserLoginDAO {
@@ -47,18 +49,25 @@ public class UserLoginDAO {
 					Login testLogin = userLoginList.get(0);
 					passwordtest = testLogin.getPword();
 				} catch (IndexOutOfBoundsException e){
-					System.out.println("Username doesn't exist because the Index is out of bounds");
-						e.printStackTrace();
+					System.out.println("Username doesn't exist");
+						
 				//the below uses the passwordtest to see if it's equal to the parameter's
 				//password. If it does, then the login is successful. The system returns true
 				//Which activites the Login menu allowing for the Login Menu to close
 				//and everything is hunky dorey.
 				} 
-				if (password == passwordtest) {
+				if (password.equals(passwordtest)) {
 					System.out.println("Log in was successful");
+					Menu menu = new Menu();
+					
+					menu.displayMenu();
+					
 					return true;
 					
 				} else {
+					LoginMenu loginMenu = new LoginMenu();
+					
+					loginMenu.displayLoginMenu();
 					return false;
 				}
 			
