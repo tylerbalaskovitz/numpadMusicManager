@@ -36,17 +36,28 @@ public class Menu {
 			System.out.println("----View Your Music------");
 			System.out.println("-------------------------");
 			
-			System.out.println("3: View Records by Name");
-			System.out.println("4: View Records by Genre");
-			System.out.println("5: View Records by Type");
+			System.out.println("3: View All Your Records");
+			
 			
 			System.out.println("-------------------------");
 			System.out.println("----Sell Your Music------");
 			System.out.println("-------------------------");
 			
-			System.out.println("6: Sell Records by Name");
-			System.out.println("7: Sell Records by Genre");
-			System.out.println("8: Sell Records by Type");
+			System.out.println("4: Sell Your Records");
+			
+			
+			//if there is time do number 5
+			
+			System.out.println("-------------------------");
+			System.out.println("-------Manage Money------");
+			System.out.println("-------------------------");
+			System.out.println("5: Balance Sheet");
+			
+			System.out.println("-------------------------");
+			System.out.println("-------Exit Program------");
+			System.out.println("-------------------------");
+			System.out.println("9: Log Off");
+;
 			
 			int input = scan.nextInt();
 			scan.nextLine();
@@ -56,25 +67,6 @@ public class Menu {
 
 				
 				//initializing the Scanner scan object.
-				
-				
-				
-				//Takes the user's input to be used in the switch for adding a record
-				int input1 = scan.nextInt();
-				scan.nextLine();
-				//Helps the application move to the next line
-				System.out.println("===============================");
-				System.out.println("Would you like to add a record?");
-				System.out.println("1. Yes, add a record.");
-				System.out.println("2. No, back to the main menu");
-				System.out.println("===============================");
-				
-				switch(input1) {
-				
-				case 1: {
-				//the dao is complete. Now, just write the code for the user to be able
-					// to add music ,genres, and the record speed
-					
 					System.out.println("Enter the Artist name");
 					String ArtName = scan.nextLine();
 					
@@ -96,23 +88,7 @@ public class Menu {
 					
 					
 					
-				break;
-				}
-				case 2: {
-					
-					
-				break;
-				}
-				default: {
-					
-					
-				}
 				
-				
-				
-			}
-				
-				break;
 			}
 			
 			case 2: {
@@ -134,27 +110,13 @@ public class Menu {
 			case 5: {
 				
 				
-				break;
+		break;
 			}
-			
-			case 6: {
-				
-				
-				break;
-			}
-			case 7: {
-				
+			case 9: {
+				displayMenu = false;
 				
 				break;
-			}
-			
-			case 8: {
-				
-				
-				break;
-			}
-			
-			
+					}
 			default: {
 				System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");			
 				System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
