@@ -9,6 +9,8 @@ record_speed TEXT --USING A TEXTtype for the record speed because I'm not doing 
 --and not an int.
 );
 
+SELECT * FROM record_names;
+
 DROP TABLE record_names;
 
 CREATE TABLE record_sales (
@@ -21,13 +23,16 @@ record_name_id_fk int REFERENCES record_names(record_id) ---FK used TO JOIN the 
 --Just some basic text fields for the database one for sales and the other for deleting / 'selling' the record
 );
 
+SELECT * FROM record_sales;
+
 DROP TABLE record_sales;
 
 CREATE TABLE login_table (
 login_id serial PRIMARY KEY, --PRIMARY KEY so EACH USER can login TO the DATABASE.
-username TEXT,
+username TEXT UNIQUE,
 pword TEXT
 );
 SELECT * FROM login_table;
 
 
+DROP TABLE login_table;

@@ -55,18 +55,23 @@ public class RecordsDAO implements RecordsDAOInterface {
 						rs.getString("genre_type1"),
 						rs.getString("genre_type2"),
 						rs.getString("genre_type3"),
-						rs.getInt("record_speed"),
-						null
+						rs.getInt("record_speed")
+						
 						
 						
 						);
 						
 				//finished the first part of this -- 
-				
-				
 			}
 			
+		} 
+		catch (SQLException e) {
+				System.out.println("There were problems adding the record information to the database.");
+				e.printStackTrace();
+				
 		}
+			
+		
 		
 		
 		
@@ -93,7 +98,7 @@ public class RecordsDAO implements RecordsDAOInterface {
 			ps.setString(3, recordToAdd.getGenre_type1());
 			ps.setString(4, recordToAdd.getGenre_type2());
 			ps.setString(5, recordToAdd.getGenre_type3());
-			ps.setString(6, recordToAdd.getRecord_speed());
+			ps.setInt(6, recordToAdd.getRecord_speed());
 			
 			ps.executeUpdate();
 			
@@ -113,5 +118,6 @@ public class RecordsDAO implements RecordsDAOInterface {
 		// TODO Auto-generated method stub
 		
 	}
+
 	
 }

@@ -10,7 +10,7 @@ public interface RecordsDAOInterface {
 	
 	
 	//add all attributes from the 
-	void addMusic();
+	void addMusic(RecordNames RecordsToAdd);
 	
 	void deleteMusic();
 	

@@ -10,7 +10,7 @@ import com.revature.utils.ConnectionUtil;
 public class LoginDAO implements LoginDAOInterface {
 
 	@Override
-	public void addUsername(Login login, int login_id) {
+	public void addUsername(Login login) {
 		//opening a connection to the database with a try block
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
@@ -22,9 +22,12 @@ public class LoginDAO implements LoginDAOInterface {
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		//filling in the values of the variable using ps.set, etc. Make sure the parameters are filled in for this
+		
+	
 		ps.setString(1, login.getUsername());
 		ps.setString(2, login.getPword());
-		ps.setInt(3, login_id);
+		
+		
 		
 		//Execute the update for putting this information into the DB
 		ps.executeUpdate();
