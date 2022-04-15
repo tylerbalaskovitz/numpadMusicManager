@@ -97,7 +97,7 @@ public class Menu {
 					
 					RecordNames rec = new RecordNames(ArtName, AlbName, Gen1Name, Gen2Name, Gen3Name, SpeedName);
 				
-					RecordsDAO.addMusic()
+					RecordsDAO.addMusic(RecordNames)
 					
 				break;
 				}

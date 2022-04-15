@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.revature.DAO.LoginDAO;
@@ -69,6 +70,10 @@ public class LoginMenu {
 				case 1:{
 					System.out.println("I like that positive attitude. I hope this helps you");
 				
+					ArrayList<Login> loginList = lDAO.displayUsername();
+					
+					System.out.println(loginList);
+					
 					break;
 				}
 				case 2:{

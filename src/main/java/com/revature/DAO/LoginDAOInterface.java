@@ -1,5 +1,7 @@
 package com.revature.DAO;
 
+import java.util.ArrayList;
+
 import com.revature.models.Login;
 
 public interface LoginDAOInterface {
@@ -8,7 +10,7 @@ public interface LoginDAOInterface {
 	void addUsername(Login login);
 	
 	//this method will display all of the username and passwords in the database
-	void displayUsername();
+	ArrayList<Login> displayUsername();
 	
 	//This method will allow you to delete a username and their password from the database.
 	void removeUsername();

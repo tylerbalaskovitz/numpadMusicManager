@@ -2,13 +2,18 @@ package com.revature.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.revature.models.Login;
 import com.revature.utils.ConnectionUtil;
 
 public class LoginDAO implements LoginDAOInterface {
 
+
+	
 	@Override
 	public void addUsername(Login login) {
 		//opening a connection to the database with a try block
@@ -44,9 +49,42 @@ public class LoginDAO implements LoginDAOInterface {
 	}
 
 	@Override
-	public void displayUsername() {
+	public ArrayList<Login> displayUsername() {
 		// TODO Auto-generated method stub
 		
+		//starting the connection with the try block
+		try (Connection conn = ConnectionUtil.getConnection()){
+			String sql = "select * from login_table;";
+			
+			//Instantiating a Statement object s to execute our query
+			Statement s = conn.createStatement();
+			
+			ResultSet rs = s.executeQuery(sql);
+			
+			//Instantiating an ArrayList to  put the Login ID's into the table.
+			ArrayList<Login> loginList = new ArrayList<>();
+			
+			while (rs.next()) {
+				
+				Login l = new Login(
+						
+						rs.getString("username"),
+						rs.getString("pword")
+						);
+						
+				l.setUsername(sql);
+				
+				loginList.add(l);
+				
+				
+				
+			}
+			return loginList;
+		} catch (SQLException e) {
+			System.out.println("Something went wrong with the Query");
+			e.printStackTrace();
+		}
+		return null;
 		
 		
 		
