@@ -45,9 +45,11 @@ public class LoginMenu {
 			System.out.println("Create a new Password");
 			String newPassword = scan.nextLine();
 			
-			Login log = new Login();
+			int login_id = 1;
 			
-			lDAO.addUsername(login, login_id);
+			Login log = new Login(newUsername, newPassword);
+			
+			lDAO.addUsername(log, login_id);
 			
 			
 		break;	
