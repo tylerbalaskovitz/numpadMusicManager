@@ -12,7 +12,7 @@ public class RecordNames {
 	private String genre_type1;
 	private String genre_type2;
 	private String genre_type3;
-	private int record_speed;
+	private String record_speed;
 	
 	
 	
@@ -26,7 +26,7 @@ public class RecordNames {
 
 
 	public RecordNames(String artist_name, String album_name, String genre_type1, String genre_type2,
-			String genre_type3, int record_speed) {
+			String genre_type3, String record_speed) {
 		super();
 		this.artist_name = artist_name;
 		this.album_name = album_name;
@@ -119,7 +119,7 @@ public class RecordNames {
 
 
 
-	public int getRecord_speed() {
+	public String getRecord_speed() {
 		return record_speed;
 	}
 
@@ -127,7 +127,7 @@ public class RecordNames {
 
 
 
-	public void setRecord_speed(int record_speed) {
+	public void setRecord_speed(String record_speed) {
 		this.record_speed = record_speed;
 	}
 

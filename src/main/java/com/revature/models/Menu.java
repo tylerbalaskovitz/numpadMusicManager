@@ -1,11 +1,14 @@
 package com.revature.models;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.revature.DAO.RecordsDAO;
 
 public class Menu {
 
+		//Instantiating the RecordsDAO with the recDAO object so we can add records.
+		RecordsDAO recDAO = new RecordsDAO();
 	
 	public void displayMenu() {
 		
@@ -57,7 +60,7 @@ public class Menu {
 			System.out.println("-------Exit Program------");
 			System.out.println("-------------------------");
 			System.out.println("9: Log Off");
-;
+
 			
 			int input = scan.nextInt();
 			scan.nextLine();
@@ -86,8 +89,9 @@ public class Menu {
 					System.out.println("Enter the speed of the record");
 					String SpeedName = scan.nextLine();
 					
+					RecordNames recName = new RecordNames(ArtName, AlbName, Gen1Name, Gen2Name, Gen3Name, SpeedName);
 					
-					
+					recDAO.addMusic(recName);
 				
 			}
 			
@@ -97,6 +101,18 @@ public class Menu {
 				break;
 			}
 			case 3: {
+				ArrayList<RecordNames> recordNamesDisplay = recDAO.displayAllRecords();
+				
+				//the naming for the lambda is arbitrary but it still needs to be unique 
+				recordNamesDisplay.forEach(recordNames -> {
+					System.out.println("====================================");
+					System.out.println("Artist: " + recordNames.getArtist_name());
+					System.out.println("Album: " + recordNames.getAlbum_name());
+					System.out.println("Genres: " + recordNames.getGenre_type1() + ", " + recordNames.getGenre_type2() + ", and " + recordNames.getGenre_type3());
+					System.out.println("Record Speed: " + recordNames.getRecord_speed());
+					System.out.println("====================================");
+				});
+				
 				
 				
 				break;

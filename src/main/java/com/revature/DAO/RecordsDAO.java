@@ -55,14 +55,16 @@ public class RecordsDAO implements RecordsDAOInterface {
 						rs.getString("genre_type1"),
 						rs.getString("genre_type2"),
 						rs.getString("genre_type3"),
-						rs.getInt("record_speed")
+						rs.getString("record_speed")
 						
 						
 						
 						);
-						
+					recordNameList.add(r);	
 				//finished the first part of this -- 
 			}
+			
+			return recordNameList;
 			
 		} 
 		catch (SQLException e) {
@@ -98,12 +100,15 @@ public class RecordsDAO implements RecordsDAOInterface {
 			ps.setString(3, recordToAdd.getGenre_type1());
 			ps.setString(4, recordToAdd.getGenre_type2());
 			ps.setString(5, recordToAdd.getGenre_type3());
-			ps.setInt(6, recordToAdd.getRecord_speed());
+			ps.setString(6, recordToAdd.getRecord_speed());
 			
 			ps.executeUpdate();
 			
-			System.out.println("The artist" + recordToAdd.getArtist_name() + "was added. Their album" + recordToAdd.getAlbum_name() + "was added as well");
-			
+			System.out.println("The artist " + recordToAdd.getArtist_name() + " was added." );
+			System.out.println("Their album " + recordToAdd.getAlbum_name() + " was added.");
+			System.out.println("This music's genres are: " + recordToAdd.getGenre_type1()  + ", " + recordToAdd.getGenre_type2() + ", and " + recordToAdd.getGenre_type3() );
+			System.out.println("The record's speed is " + recordToAdd.getRecord_speed());
+			System.out.println("Enjoy your music.");
 			
 		} catch (SQLException e) {
 			System.out.println("Something went awfully wrong");

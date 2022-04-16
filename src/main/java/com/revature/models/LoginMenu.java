@@ -99,7 +99,14 @@ public class LoginMenu {
 				
 					ArrayList<Login> loginList = lDAO.displayUsername();
 					
-					System.out.println(loginList);
+					//the lambda needs to just be a new variable for it to work.
+					loginList.forEach(login -> {
+						System.out.println("================================");
+						System.out.println("Username: " + login.getUsername());
+						System.out.println("Password: " + login.getPword());
+						System.out.println("================================");
+						
+					});
 					
 					break;
 				}
@@ -108,9 +115,14 @@ public class LoginMenu {
 					
 					ArrayList<Login> loginList = lDAO.displayUsername();
 					
-					System.out.println(loginList);
-					
-					
+					loginList.forEach(login -> {
+						System.out.println("================================");
+						System.out.println("Username: " + login.getUsername());
+						System.out.println("Password: " + login.getPword());
+						System.out.println("================================");
+						
+						
+					});
 					
 					break;
 				}
