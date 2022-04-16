@@ -104,7 +104,7 @@ public class LoginMenu {
 						System.out.println("================================");
 						System.out.println("Username: " + login.getUsername());
 						System.out.println("Password: " + login.getPword());
-						System.out.println("================================");
+						
 						
 					});
 					
@@ -112,6 +112,7 @@ public class LoginMenu {
 				}
 				case 2:{
 					System.out.println("I appreciate your honesty. That makes you a good person.");
+					System.out.println("I hope this helps you out :)");
 					
 					ArrayList<Login> loginList = lDAO.displayUsername();
 					
@@ -119,7 +120,7 @@ public class LoginMenu {
 						System.out.println("================================");
 						System.out.println("Username: " + login.getUsername());
 						System.out.println("Password: " + login.getPword());
-						System.out.println("================================");
+						
 						
 						
 					});

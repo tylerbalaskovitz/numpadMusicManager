@@ -33,21 +33,22 @@ public class Menu {
 			
 			System.out.println("1: Add a Record");
 			System.out.println("2: Update an Entry");
+			System.out.println(" ");
 
 			
 			System.out.println("-------------------------");
-			System.out.println("----View Your Music------");
+			System.out.println("----Manage Your Music----");
 			System.out.println("-------------------------");
 			
 			System.out.println("3: View All Your Records");
-			
+			System.out.println(" ");
 			
 			System.out.println("-------------------------");
 			System.out.println("----Sell Your Music------");
 			System.out.println("-------------------------");
 			
 			System.out.println("4: Sell Your Records");
-			
+			System.out.println(" ");
 			
 			//if there is time do number 5
 			
@@ -55,6 +56,7 @@ public class Menu {
 			System.out.println("-------Manage Money------");
 			System.out.println("-------------------------");
 			System.out.println("5: Balance Sheet");
+			System.out.println(" ");
 			
 			System.out.println("-------------------------");
 			System.out.println("-------Exit Program------");
@@ -98,6 +100,10 @@ public class Menu {
 			case 2: {
 				
 				
+				
+				
+				
+				
 				break;
 			}
 			case 3: {
@@ -110,7 +116,7 @@ public class Menu {
 					System.out.println("Album: " + recordNames.getAlbum_name());
 					System.out.println("Genres: " + recordNames.getGenre_type1() + ", " + recordNames.getGenre_type2() + ", and " + recordNames.getGenre_type3());
 					System.out.println("Record Speed: " + recordNames.getRecord_speed());
-					System.out.println("====================================");
+					
 				});
 				
 				

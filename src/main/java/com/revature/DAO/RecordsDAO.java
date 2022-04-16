@@ -50,6 +50,7 @@ public class RecordsDAO implements RecordsDAOInterface {
 				
 				RecordNames r = new RecordNames(
 						
+						
 						rs.getString("artist_name"),
 						rs.getString("album_name"),
 						rs.getString("genre_type1"),
@@ -90,10 +91,11 @@ public class RecordsDAO implements RecordsDAOInterface {
 			//that we can add new information into the DBeaver Database.
 			
 			String sql = "insert into record_names (artist_name, album_name, genre_type1, genre_type2, genre_type3, record_speed)"
-					+ "values(?, ?, ?, ?, ?, ?);";
+					+ "values ?, ?, ?, ?, ?, ?);";
 			
 			//this prepared statement is used to vill in the variables in the SQL string above.
 			PreparedStatement ps = conn.prepareStatement(sql);
+			
 			
 			ps.setString(1, recordToAdd.getArtist_name());
 			ps.setString(2, recordToAdd.getAlbum_name());
@@ -124,5 +126,44 @@ public class RecordsDAO implements RecordsDAOInterface {
 		
 	}
 
+	@Override
+	public void updateMusic(String artist_name, String album_name, String genre_type1, String genre_type2, String genre_type3, String record_speed, int login_id)  {
+		
+		//First a connection to the database must first occur
+		try(Connection conn = ConnectionUtil.getConnection()){
+			
+			//after update is the NAME OF THE TABLE. SET is the columns all of this will occur in. So, we're updating all of the columns.
+			//finally, the WHERE specifies where this is occurring so the entire table doesn't get updated. 
+			String sql = "update record_names set artist_name = ?, album_name = ?, genre_type1 = ?, genre_type2 = ?, genre_type3 = ?, record_speed = ? where login_id = ?;";
+			
+			//the prepared statement that will go to the database.
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, artist_name);
+			ps.setString(2, album_name);
+			ps.setString(3, genre_type1);
+			ps.setString(4, genre_type2);
+			ps.setString(5, genre_type3);
+			ps.setString(6, record_speed);
+			ps.setInt(7, login_id);
+			
+			
+			ps.executeUpdate();
+			
+			System.out.println("The update was a success and ID: " + login_id + " is now: " );
+			
+			
+			
+		} catch (SQLException e) {
+			System.out.println("We failed to update the music entry. Please try again");
+			e.printStackTrace();
+		}
+		
+		
+	}
+
 	
-}
+		
+	}
+
+	
+
