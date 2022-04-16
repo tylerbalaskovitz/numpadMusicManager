@@ -91,7 +91,7 @@ public class RecordsDAO implements RecordsDAOInterface {
 			//that we can add new information into the DBeaver Database.
 			
 			String sql = "insert into record_names (artist_name, album_name, genre_type1, genre_type2, genre_type3, record_speed)"
-					+ "values ?, ?, ?, ?, ?, ?);";
+					+ "values (?, ?, ?, ?, ?, ?);";
 			
 			//this prepared statement is used to vill in the variables in the SQL string above.
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -108,7 +108,7 @@ public class RecordsDAO implements RecordsDAOInterface {
 			
 			System.out.println("The artist " + recordToAdd.getArtist_name() + " was added." );
 			System.out.println("Their album " + recordToAdd.getAlbum_name() + " was added.");
-			System.out.println("This music's genres are: " + recordToAdd.getGenre_type1()  + ", " + recordToAdd.getGenre_type2() + ", and " + recordToAdd.getGenre_type3() );
+			System.out.println("This entry's genres are: " + recordToAdd.getGenre_type1()  + ", " + recordToAdd.getGenre_type2() + ", and " + recordToAdd.getGenre_type3() );
 			System.out.println("The record's speed is " + recordToAdd.getRecord_speed());
 			System.out.println("Enjoy your music.");
 			
@@ -127,7 +127,7 @@ public class RecordsDAO implements RecordsDAOInterface {
 	}
 
 	@Override
-	public void updateMusic(String artist_name, String album_name, String genre_type1, String genre_type2, String genre_type3, String record_speed, int login_id)  {
+	public void updateMusic(String artist_name, String album_name, String genre_type1, String genre_type2, String genre_type3, String record_speed)  {
 		
 		//First a connection to the database must first occur
 		try(Connection conn = ConnectionUtil.getConnection()){
@@ -144,12 +144,12 @@ public class RecordsDAO implements RecordsDAOInterface {
 			ps.setString(4, genre_type2);
 			ps.setString(5, genre_type3);
 			ps.setString(6, record_speed);
-			ps.setInt(7, login_id);
+			
 			
 			
 			ps.executeUpdate();
 			
-			System.out.println("The update was a success and ID: " + login_id + " is now: " );
+			System.out.println("The update was a success and ID: " );
 			
 			
 			

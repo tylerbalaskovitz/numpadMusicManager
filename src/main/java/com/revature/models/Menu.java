@@ -91,6 +91,7 @@ public class Menu {
 					System.out.println("Enter the speed of the record");
 					String SpeedName = scan.nextLine();
 					
+					
 					RecordNames recName = new RecordNames(ArtName, AlbName, Gen1Name, Gen2Name, Gen3Name, SpeedName);
 					
 					recDAO.addMusic(recName);
