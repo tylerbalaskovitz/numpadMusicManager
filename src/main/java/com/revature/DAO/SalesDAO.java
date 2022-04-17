@@ -12,6 +12,8 @@ import com.revature.models.Sales;
 import com.revature.utils.ConnectionUtil;
 
 public class SalesDAO implements SalesDAOInterface{
+	
+	SalesDAO saleDAO = new SalesDAO();
 
 	@Override
 	public void purhcase_location() {
@@ -66,19 +68,29 @@ public class SalesDAO implements SalesDAOInterface{
 				
 				//create new Employee objects based on the data, and fill in the ArrayList
 				Sales e = new Sales(
-						rs.getInt("employee_id"),
-						rs.getString("first_name"),
-						rs.getString("last_name"),
-						null
+						rs.getInt("record_id"),
+						rs.getString("artist_name"),
+						rs.getString("album_name"),
+						rs.getString("genre_type1"),
+						rs.getString("genre_type2"),
+						rs.getString("genre_type3"),
+						rs.getString("record_speed")
+						//sales table information
+						rs.getInt("record_sales_id"),
+						rs.getString("purchase_location"),
+						rs.getString("purchase_price"),
+						rs.getString("sale_location"),
+						rs.getString("sale_price"),
+						rs.getInt("record_name_id_fk")
+						
 						);
 						
-				//get the foreign key from the Employees table to user in our getRoleByID emthod
-				int roleFK = rs.getInt("role_id_fk");
+			
 				
-				Sale sale = saleDAO.getRoleByID(roleFK);
+				Sales sale = saleDAO.
 				
 				//Fill in the previously null Role variable in this new employee object with the setter.
-				saleDAO.getRoleByID(roleFK);
+				saleDAO.
 				
 				//fill in the employeeList with each while loop until eventually rs.next() == false;
 				salesList.add(e);
