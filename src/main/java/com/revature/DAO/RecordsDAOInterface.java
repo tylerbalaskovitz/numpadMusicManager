@@ -13,7 +13,7 @@ public interface RecordsDAOInterface {
 	void addMusic(RecordNames RecordsToAdd);
 	
 	
-	void deleteMusic();
+	void deleteMusic(int record_id);
 	
 	
 	

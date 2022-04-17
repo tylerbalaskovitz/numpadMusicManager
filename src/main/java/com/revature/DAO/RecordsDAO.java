@@ -121,8 +121,37 @@ public class RecordsDAO implements RecordsDAOInterface {
 	}
 
 	@Override
-	public void deleteMusic() {
+	public void deleteMusic(int record_id) {
 		// TODO Auto-generated method stub
+		
+try(Connection conn = ConnectionUtil.getConnection()){
+			
+			//after update is the NAME OF THE TABLE. SET is the columns all of this will occur in. So, we're updating all of the columns.
+			//finally, the WHERE specifies where this is occurring so the entire table doesn't get updated. 
+			String sql = "delete from record_names where record_id = ?;";
+			
+			//the prepared statement that will go to the database.
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, record_id);
+			
+			
+			
+			
+			ps.executeUpdate();
+			
+			System.out.println("The DELETION was a success" );
+			
+			
+			
+		} catch (SQLException e) {
+			System.out.println("We failed to DELETE the music entry. Please try again");
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
 		
 	}
 
@@ -152,7 +181,7 @@ public class RecordsDAO implements RecordsDAOInterface {
 			
 			ps.executeUpdate();
 			
-			System.out.println("The update was a success and ID: " );
+			System.out.println("The update was a success :) " );
 			
 			
 			

@@ -28,35 +28,16 @@ public class Menu {
 			
 			
 			System.out.println("-------------------------");
-			System.out.println("------Add New Music------");
+			System.out.println("----Manage your Music----");
 			System.out.println("-------------------------");
 			
 			System.out.println("1: Add a Record");
 			System.out.println("2: Update an Entry");
+			System.out.println("3: View All Your Records");
+			System.out.println("4: DELETE Your Records");
 			System.out.println(" ");
 
 			
-			System.out.println("-------------------------");
-			System.out.println("----Manage Your Music----");
-			System.out.println("-------------------------");
-			
-			System.out.println("3: View All Your Records");
-			System.out.println(" ");
-			
-			System.out.println("-------------------------");
-			System.out.println("----Sell Your Music------");
-			System.out.println("-------------------------");
-			
-			System.out.println("4: Sell Your Records");
-			System.out.println(" ");
-			
-			//if there is time do number 5
-			
-			System.out.println("-------------------------");
-			System.out.println("-------Manage Money------");
-			System.out.println("-------------------------");
-			System.out.println("5: Balance Sheet");
-			System.out.println(" ");
 			
 			System.out.println("-------------------------");
 			System.out.println("-------Exit Program------");
@@ -95,7 +76,7 @@ public class Menu {
 					RecordNames recName = new RecordNames(ArtName, AlbName, Gen1Name, Gen2Name, Gen3Name, SpeedName);
 					
 					recDAO.addMusic(recName);
-				
+				break;
 			}
 			
 			case 2: {
@@ -158,22 +139,34 @@ public class Menu {
 					System.out.println("Record Speed: " + recordNames.getRecord_speed());
 					
 				});
-				
-				
+			
 				
 				break;
 			}
 			
 			case 4: {
+				ArrayList<RecordNames> recordNamesDisplay = recDAO.displayAllRecords();
+				
+				//the naming for the lambda is arbitrary but it still needs to be unique 
+				recordNamesDisplay.forEach(recordNames -> {
+					System.out.println("====================================");
+					System.out.println("ID Number: " + recordNames.getRecord_id());
+					System.out.println("Artist: " + recordNames.getArtist_name());
+					System.out.println("Album: " + recordNames.getAlbum_name());
+					System.out.println("Genres: " + recordNames.getGenre_type1() + ", " + recordNames.getGenre_type2() + ", and " + recordNames.getGenre_type3());
+					System.out.println("Record Speed: " + recordNames.getRecord_speed());
+					
+				});
+				System.out.println("Which entry would you like to DELETE?");
+				int recordID = scan.nextInt();
+				
+				recDAO.deleteMusic(recordID);
 				
 				
 				break;
 			}
-			case 5: {
-				
-				
-		break;
-			}
+			
+			
 			case 9: {
 				displayMenu = false;
 				
