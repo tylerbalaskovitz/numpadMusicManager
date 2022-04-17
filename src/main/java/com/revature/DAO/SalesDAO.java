@@ -12,7 +12,7 @@ import com.revature.utils.ConnectionUtil;
 
 public class SalesDAO implements SalesDAOInterface{
 	
-	SalesDAO saleDAO = new SalesDAO();
+	
 
 	@Override
 	public void purhcase_location() {

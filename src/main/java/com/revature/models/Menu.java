@@ -39,7 +39,11 @@ public class Menu {
 			System.out.println("3: View All Your Records");
 			System.out.println("4: DELETE Your Records");
 			
-			
+			System.out.println("-------------------------");
+			System.out.println("----Manage your Money----");
+			System.out.println("-------------------------");
+			System.out.println("5: View All Records' Sales Information");
+			System.out.println("6: Update a Record's Sales Information");
 			
 			System.out.println("-------------------------");
 			System.out.println("-------Exit Program------");
@@ -172,14 +176,24 @@ public class Menu {
 			case 5: {
 				
 				ArrayList<Sales> salesAllDisplay = saleDAO.displayAllSales();
-				salesAllDisplay.forEach(salesnames -> {
-					System.out.println("====================================");	
-					System.out.println("Id Number: ";
-					
+				
+				salesAllDisplay.forEach(salesdisplay -> {
+					System.out.println("====================================");
+					System.out.println("ID Number: " + salesdisplay.getRecord_id());
+					System.out.println("Artist: " + salesdisplay.getArtist_name() );
+					System.out.println("Album: " + salesdisplay.getAlbum_name() );
+					System.out.println("Record Speed: " + salesdisplay.getRecord_speed());
+					System.out.println("Purhcase Location: " + salesdisplay.getPurchase_location());
+					System.out.println("Purchase Price: " + salesdisplay.getPurchase_price());
+					System.out.println("Sale Location: " + salesdisplay.getSale_location());
+					System.out.println("Sale Price: " + salesdisplay.getSale_price());
 					
 					
 					
 				});
+					
+					
+				
 				
 				
 				
