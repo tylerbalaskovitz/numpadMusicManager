@@ -6,8 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.revature.models.Employee;
-import com.revature.models.Role;
+
 import com.revature.models.Sales;
 import com.revature.utils.ConnectionUtil;
 
@@ -85,15 +84,15 @@ public class SalesDAO implements SalesDAOInterface{
 						
 						);
 						
-			
+						salesList.add(sa);
 				
-				Sales sale = saleDAO.
+				
 				
 				//Fill in the previously null Role variable in this new employee object with the setter.
-				saleDAO.
+				
 				
 				//fill in the employeeList with each while loop until eventually rs.next() == false;
-				salesList.add(sa);
+				
 				
 				
 			}

@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.revature.DAO.RecordsDAO;
+import com.revature.DAO.SalesDAO;
 
 public class Menu {
 
 		//Instantiating the RecordsDAO with the recDAO object so we can add records.
 		RecordsDAO recDAO = new RecordsDAO();
+		
+		SalesDAO saleDAO = new SalesDAO();
 	
 	public void displayMenu() {
 		
@@ -162,6 +165,22 @@ public class Menu {
 				int recordID = scan.nextInt();
 				
 				recDAO.deleteMusic(recordID);
+				
+				
+				break;
+			}
+			case 5: {
+				
+				ArrayList<Sales> salesAllDisplay = saleDAO.displayAllSales();
+				salesAllDisplay.forEach(salesnames -> {
+					System.out.println("====================================");	
+					System.out.println("Id Number: ";
+					
+					
+					
+					
+				});
+				
 				
 				
 				break;
