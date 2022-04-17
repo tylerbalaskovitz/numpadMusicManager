@@ -7,7 +7,7 @@ public class RecordNames {
 	
 	//Private variables for the Record Name Class.
 	//Getters, Setters, toString and Constructor boilerplate code is below
-	
+	private int record_id;
 	private String artist_name;
 	private String album_name;
 	private String genre_type1;
@@ -15,6 +15,26 @@ public class RecordNames {
 	private String genre_type3;
 	private String record_speed;
 	
+
+
+
+
+
+	public RecordNames(int record_id, String artist_name, String album_name, String genre_type1, String genre_type2,
+			String genre_type3, String record_speed) {
+		super();
+		this.record_id = record_id;
+		this.artist_name = artist_name;
+		this.album_name = album_name;
+		this.genre_type1 = genre_type1;
+		this.genre_type2 = genre_type2;
+		this.genre_type3 = genre_type3;
+		this.record_speed = record_speed;
+	}
+
+
+
+
 
 
 
@@ -148,6 +168,30 @@ public class RecordNames {
 
 	public void setRecord_speed(String record_speed) {
 		this.record_speed = record_speed;
+	}
+
+
+
+
+
+
+
+
+
+	public int getRecord_id() {
+		return record_id;
+	}
+
+
+
+
+
+
+
+
+
+	public void setRecord_id(int record_id) {
+		this.record_id = record_id;
 	}
 
 

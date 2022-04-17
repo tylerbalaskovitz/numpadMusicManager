@@ -99,9 +99,47 @@ public class Menu {
 			}
 			
 			case 2: {
+				//an array to show all the records that exist within a database
+				ArrayList<RecordNames> recordNamesDisplay = recDAO.displayAllRecords();
+				
+				//the naming for the lambda is arbitrary but it still needs to be unique 
+				recordNamesDisplay.forEach(recordNames -> {
+					System.out.println("====================================");
+					System.out.println("ID Number: " + recordNames.getRecord_id());
+					System.out.println("Artist: " + recordNames.getArtist_name());
+					System.out.println("Album: " + recordNames.getAlbum_name());
+					System.out.println("Genres: " + recordNames.getGenre_type1() + ", " + recordNames.getGenre_type2() + ", and " + recordNames.getGenre_type3());
+					System.out.println("Record Speed: " + recordNames.getRecord_speed());
+					
+				});
+				//Aftewards is the method that allows you to update the entry based upon
+				//the record ID
+				System.out.println("Which entry would you like to update?");
+				int recordID = scan.nextInt();
+				scan.nextLine();//this moves to the next line otherwise if this isn't done
+				//the next scan.nextLine() is used meaning that ArtName will just be a String
+				//that moves things to the next line.
+				
+				System.out.println("Enter the Artist name");
+				String ArtName = scan.nextLine();
+				
+				System.out.println("Enter the Album name");
+				String AlbName = scan.nextLine();
+				
+				System.out.println("Enter the first genre");
+				String Gen1Name = scan.nextLine();
+				
+				System.out.println("Enter the second genre");
+				String Gen2Name = scan.nextLine();
+				
+				System.out.println("Enter the third genre");
+				String Gen3Name = scan.nextLine();
+				
+				System.out.println("Enter the speed of the record");
+				String SpeedName = scan.nextLine();
 				
 				
-				
+				recDAO.updateMusic(recordID, ArtName, AlbName, Gen1Name, Gen2Name, Gen3Name, SpeedName);
 				
 				
 				
@@ -113,6 +151,7 @@ public class Menu {
 				//the naming for the lambda is arbitrary but it still needs to be unique 
 				recordNamesDisplay.forEach(recordNames -> {
 					System.out.println("====================================");
+					System.out.println("ID Number: " + recordNames.getRecord_id());
 					System.out.println("Artist: " + recordNames.getArtist_name());
 					System.out.println("Album: " + recordNames.getAlbum_name());
 					System.out.println("Genres: " + recordNames.getGenre_type1() + ", " + recordNames.getGenre_type2() + ", and " + recordNames.getGenre_type3());
