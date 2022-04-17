@@ -67,14 +67,14 @@ public class SalesDAO implements SalesDAOInterface{
 			while(rs.next()) {
 				
 				//create new Employee objects based on the data, and fill in the ArrayList
-				Sales e = new Sales(
+				Sales sa = new Sales(
 						rs.getInt("record_id"),
 						rs.getString("artist_name"),
 						rs.getString("album_name"),
 						rs.getString("genre_type1"),
 						rs.getString("genre_type2"),
 						rs.getString("genre_type3"),
-						rs.getString("record_speed")
+						rs.getString("record_speed"),
 						//sales table information
 						rs.getInt("record_sales_id"),
 						rs.getString("purchase_location"),
@@ -93,7 +93,7 @@ public class SalesDAO implements SalesDAOInterface{
 				saleDAO.
 				
 				//fill in the employeeList with each while loop until eventually rs.next() == false;
-				salesList.add(e);
+				salesList.add(sa);
 				
 				
 			}

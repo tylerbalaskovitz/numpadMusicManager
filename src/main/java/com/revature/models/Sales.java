@@ -1,9 +1,43 @@
 package com.revature.models;
 
+import java.util.Objects;
+
 public class Sales {
 
 	//the data that is used within the first table record_names for doing full outer joins
 	private int record_id;
+	@Override
+	public int hashCode() {
+		return Objects.hash(album_name, artist_name, genre_type1, genre_type2, genre_type3, purchase_location,
+				purchase_price, record_id, record_sales_id, record_sales_id_fk, record_speed, sale_location,
+				sale_price);
+	}
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sales other = (Sales) obj;
+		return Objects.equals(album_name, other.album_name) && Objects.equals(artist_name, other.artist_name)
+				&& Objects.equals(genre_type1, other.genre_type1) && Objects.equals(genre_type2, other.genre_type2)
+				&& Objects.equals(genre_type3, other.genre_type3)
+				&& Objects.equals(purchase_location, other.purchase_location)
+				&& Objects.equals(purchase_price, other.purchase_price) && record_id == other.record_id
+				&& record_sales_id == other.record_sales_id && record_sales_id_fk == other.record_sales_id_fk
+				&& Objects.equals(record_speed, other.record_speed)
+				&& Objects.equals(sale_location, other.sale_location) && Objects.equals(sale_price, other.sale_price);
+	}
+
+
+
+
 	private String artist_name;
 	private String album_name;
 	private String genre_type1;
