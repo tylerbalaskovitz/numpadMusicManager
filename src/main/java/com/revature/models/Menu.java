@@ -35,8 +35,7 @@ public class Menu {
 			System.out.println("2: Update an Entry");
 			System.out.println("3: View All Your Records");
 			System.out.println("4: DELETE Your Records");
-			System.out.println(" ");
-
+			
 			
 			
 			System.out.println("-------------------------");
@@ -157,7 +156,9 @@ public class Menu {
 					System.out.println("Record Speed: " + recordNames.getRecord_speed());
 					
 				});
+				System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 				System.out.println("Which entry would you like to DELETE?");
+				System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 				int recordID = scan.nextInt();
 				
 				recDAO.deleteMusic(recordID);
