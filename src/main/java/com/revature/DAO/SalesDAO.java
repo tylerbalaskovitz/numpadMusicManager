@@ -12,7 +12,40 @@ import com.revature.utils.ConnectionUtil;
 
 public class SalesDAO implements SalesDAOInterface{
 	
-	
+	@Override
+	public void update_sale_price(String purchase_location, String purchase_price, String sale_location, String sale_price, int record_id) {
+		
+		
+	try(Connection conn = ConnectionUtil.getConnection()){
+			
+			//after update is the NAME OF THE TABLE. SET is the columns all of this will occur in. So, we're updating all of the columns.
+			//finally, the WHERE specifies where this is occurring so the entire table doesn't get updated. 
+			String sql = "update record_sales set purchase_location = ?, purchase_price = ?, sale_location = ?, sale_price = ? where record_sales_id = ?;";
+			
+			//the prepared statement that will go to the database.
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, purchase_location);
+			ps.setString(2, purchase_price);
+			ps.setString(3, sale_location);
+			ps.setString(4, sale_price);
+			ps.setInt(5, record_id);
+			
+			
+			ps.executeUpdate();
+			
+			System.out.println("The update was a success :) " );
+			
+			
+			
+		} catch (SQLException e) {
+			System.out.println("We failed to update the sale's entry. Please try again");
+			e.printStackTrace();
+		}
+
+		
+		
+	}
 
 	@Override
 	public void purhcase_location() {
@@ -108,6 +141,14 @@ public class SalesDAO implements SalesDAOInterface{
 		
 		return null;
 	}
+
+	@Override
+	public void update_sale_price() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 	
 	

@@ -191,7 +191,7 @@ public class Menu {
 					
 					
 				});
-					
+				
 					
 				
 				
@@ -199,6 +199,47 @@ public class Menu {
 				
 				break;
 			}
+			case 6: {
+				
+	ArrayList<Sales> salesAllDisplay = saleDAO.displayAllSales();
+				
+				salesAllDisplay.forEach(salesdisplay -> {
+					System.out.println("====================================");
+					System.out.println("ID Number: " + salesdisplay.getRecord_id());
+					System.out.println("Artist: " + salesdisplay.getArtist_name() );
+					System.out.println("Album: " + salesdisplay.getAlbum_name() );
+					System.out.println("Record Speed: " + salesdisplay.getRecord_speed());
+					System.out.println("Purhcase Location: " + salesdisplay.getPurchase_location());
+					System.out.println("Purchase Price: " + salesdisplay.getPurchase_price());
+					System.out.println("Sale Location: " + salesdisplay.getSale_location());
+					System.out.println("Sale Price: " + salesdisplay.getSale_price());
+					
+					
+					
+				});
+				
+				System.out.println("Which entry would you like to update?");
+				int recordID = scan.nextInt();
+				scan.nextLine();//this moves to the next line otherwise if this isn't done
+				//the next scan.nextLine() is used meaning that ArtName will just be a String
+				//that moves things to the next line.
+				
+				System.out.println("Where did you purchase this word?");
+				String purchase_location = scan.nextLine();
+				
+				System.out.println("How much did you buy it for?");
+				String purchase_price = scan.nextLine();
+				
+				System.out.println("Where did you sell the record?");
+				String sale_location = scan.nextLine();
+				
+				System.out.println("How much did you sell it for?");
+				String sale_price = scan.nextLine();
+				
+				saleDAO.update_sale_price(purchase_location, purchase_price, sale_location, sale_price, recordID);
+				break;
+			}
+			
 			
 			
 			case 9: {
