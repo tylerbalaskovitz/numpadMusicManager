@@ -19,7 +19,7 @@ purchase_location TEXT,
 purchase_price TEXT,
 sale_location TEXT,
 sale_price TEXT, 
-record_name_id_fk int REFERENCES record_names(record_id) ---FK used TO JOIN the two TABLES together BY the PK in the record_names 
+record_name_id_fk int UNIQUE REFERENCES record_names(record_id) ---FK used TO JOIN the two TABLES together BY the PK in the record_names 
 --Just some basic text fields for the database one for sales and the other for deleting / 'selling' the record
 );
 
