@@ -91,9 +91,10 @@ public class RecordsDAO implements RecordsDAOInterface {
 			//that we can add new information into the DBeaver Database.
 			
 			String sql = "insert into record_names (artist_name, album_name, genre_type1, genre_type2, genre_type3, record_speed)"
-					+ "values (?, ?, ?, ?, ?, ?);";
+					+ "values (?, ?, ?, ?, ?, ?); ";
+					
 			
-			//this prepared statement is used to vill in the variables in the SQL string above.
+			//this prepared statement is used to will in the variables in the SQL string above.
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
 			
@@ -104,7 +105,28 @@ public class RecordsDAO implements RecordsDAOInterface {
 			ps.setString(5, recordToAdd.getGenre_type3());
 			ps.setString(6, recordToAdd.getRecord_speed());
 			
+			
 			ps.executeUpdate();
+			
+			/*
+			RecordNames onerecorddisplay = DisplayOneRecordName(recordToAdd.getAlbum_name());
+			// maybe this will work
+			
+			String fksql = "insert into record_sales (purchase_location, purchase_price, sale_location, sale_price, record_sales_id)"
+					+ "values ('Test', 'Test', 'TEST', 'Test', ?);";
+			
+			int fk = (onerecorddisplay.getRecord_id());
+			
+			System.out.println(fk);
+			
+			PreparedStatement fkps = conn.prepareStatement(fksql);
+			
+			fkps.setInt(1, fk);
+			
+			
+			fkps.executeUpdate();
+			*/
+			// Maybe the above will work
 			
 			System.out.println("The artist " + recordToAdd.getArtist_name() + " was added." );
 			System.out.println("Their album " + recordToAdd.getAlbum_name() + " was added.");
@@ -193,9 +215,66 @@ try(Connection conn = ConnectionUtil.getConnection()){
 		
 	}
 
+	@Override
+	public RecordNames DisplayOneRecordName(String name) {
+		// TODO Auto-generated method stub
+		
+	
+	try (Connection conn = ConnectionUtil.getConnection()){
+		
+		//This string sql represents of the SQL Statement
+		String sql = "select * from record_names where album_name = ?;";
+		
+		//A statement object is created to execute the query to the database.
+		PreparedStatement ps = conn.prepareStatement(sql);
+			
+		
+		ps.setString(1, name);
+		
+		//Execute the query into a ResultSet object, which will hold all the data
+		ResultSet rs = ps.executeQuery();
+		
+		//This will instantiate an ArrayList to put our Employee objects into
+		
+		
+		//This while loop is used to create the recordName object to populate the
+		//ArrayList with them. The ResultSet (rs) from above is holding our data
+		while (rs.next()) {
+			
+			RecordNames r = new RecordNames(
+					
+					rs.getInt("record_id"),
+					rs.getString("artist_name"),
+					rs.getString("album_name"),
+					rs.getString("genre_type1"),
+					rs.getString("genre_type2"),
+					rs.getString("genre_type3"),
+					rs.getString("record_speed")
+					
+					
+					
+					);
+			return r;
+			
+			//finished the first part of this -- 
+		}
+		
+		
+	} 
+	catch (SQLException e) {
+			System.out.println("There were problems adding the record information to the database.");
+			e.printStackTrace();
+			
+	}
+		
+	
+	
+	
+	
+	return null;
 	
 		
 	}
-
+}
 	
 

@@ -20,7 +20,7 @@ public class SalesDAO implements SalesDAOInterface{
 			
 			//after update is the NAME OF THE TABLE. SET is the columns all of this will occur in. So, we're updating all of the columns.
 			//finally, the WHERE specifies where this is occurring so the entire table doesn't get updated. 
-			String sql = "update record_sales set purchase_location = ?, purchase_price = ?, sale_location = ?, sale_price = ? where record_name_id_fk = ?;";
+			String sql = "update record_sales set purchase_location = ?, purchase_price = ?, sale_location = ?, sale_price = ?";
 			
 			//the prepared statement that will go to the database.
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -29,7 +29,7 @@ public class SalesDAO implements SalesDAOInterface{
 			ps.setString(2, purchase_price);
 			ps.setString(3, sale_location);
 			ps.setString(4, sale_price);
-			ps.setInt(5, record_id);
+			
 			
 			
 			ps.executeUpdate();

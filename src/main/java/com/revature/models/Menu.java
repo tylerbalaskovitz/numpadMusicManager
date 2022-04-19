@@ -224,7 +224,7 @@ public class Menu {
 				//the next scan.nextLine() is used meaning that ArtName will just be a String
 				//that moves things to the next line.
 				
-				System.out.println("Where did you purchase this word?");
+				System.out.println("Where did you purchase this record?");
 				String purchase_location = scan.nextLine();
 				
 				System.out.println("How much did you buy it for?");
@@ -237,6 +237,9 @@ public class Menu {
 				String sale_price = scan.nextLine();
 				
 				saleDAO.update_sale_price(purchase_location, purchase_price, sale_location, sale_price, recordID);
+				
+				
+				
 				break;
 			}
 			

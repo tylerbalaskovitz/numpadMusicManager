@@ -16,6 +16,8 @@ public interface RecordsDAOInterface {
 	void deleteMusic(int record_id);
 	
 	
+	//a record for searching by the record name. 
+	RecordNames DisplayOneRecordName(String name);
 	
 	//this method will display the entire catalog of records that is in one's collection
 	ArrayList<RecordNames> displayAllRecords();
