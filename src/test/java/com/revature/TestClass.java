@@ -23,7 +23,7 @@ public class TestClass {
 		UserLoginDAO openLoginMenu = new UserLoginDAO();
 		
 		
-	Assert.assertFalse(openLoginMenu.login("asdlkfj", "aasdf"));
+	Assert.assertThat(openLoginMenu.login("asdlkfj", "aasdf") == false);
 		
 		
 		
@@ -34,7 +34,7 @@ public class TestClass {
 		UserLoginDAO openLoginMenu = new UserLoginDAO();
 		
 		
-		Assert.assertTrue(openLoginMenu.login("tyler", "password"));
+		Assert.assertThat(openLoginMenu.login("tyler", "password") == true);
 		
 	}
 	
