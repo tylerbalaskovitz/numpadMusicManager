@@ -32,7 +32,9 @@ public class Launcher {
 		
 		openLoginMenu.displayLoginMenu();
 		
+		Menu menu = new Menu();
 		
+		menu.displayMenu();
 		 
 	
 		

@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.revature.DAO.RecordsDAO;
@@ -8,6 +9,7 @@ import com.revature.DAO.SalesDAO;
 
 public class Menu {
 
+		boolean displayMenu;
 		//Instantiating the RecordsDAO with the recDAO object so we can add records.
 		RecordsDAO recDAO = new RecordsDAO();
 		
@@ -51,7 +53,7 @@ public class Menu {
 			System.out.println("9: Log Off");
 
 			
-			int input = scan.nextInt();
+			try { int input = scan.nextInt();
 			scan.nextLine();
 			
 			switch(input) {
@@ -261,6 +263,13 @@ public class Menu {
 			
 			
 			}
+			
+			} catch (InputMismatchException e) {
+				System.out.println("Please type in the proper value.");
+				displayMenu = false;
+				displayMenu();} 
+				
+			
 			
 		}
 		

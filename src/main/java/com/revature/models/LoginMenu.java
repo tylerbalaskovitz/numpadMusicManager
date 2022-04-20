@@ -1,23 +1,25 @@
 package com.revature.models;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.revature.DAO.LoginDAO;
 import com.revature.DAO.UserLoginDAO;
 
 public class LoginMenu {
-
+	boolean LoginMenu;
 	UserLoginDAO ulDAO = new UserLoginDAO();
 	
 	LoginDAO lDAO = new LoginDAO();
 	
 	//creating a method to control the login menu
 	public void displayLoginMenu() {
-	boolean LoginMenu = true;
+	LoginMenu = true;
 	Scanner scan = new Scanner(System.in);
 	
 	while (LoginMenu) {
+		
 		System.out.println("=======================================================");
 		System.out.println("====Welcome to the NumPad Music Manager Log in Menu====");
 		System.out.println("=======================================================");
@@ -26,10 +28,11 @@ public class LoginMenu {
 		System.out.println("1. Log in to the Program");
 		System.out.println("2. Create a new account");
 		System.out.println("3. Forgot your username/password?");
-		int input = scan.nextInt(); //creating the option for people to navigate the login menu
-		scan.nextLine();
+		try {int input = scan.nextInt(); //creating the option for people to navigate the login menu
+		scan.nextLine(); 
 		
 		switch (input) {
+		
 		case 1: {
 		//displaying the contents of the menu.
 		System.out.println("Username:");
@@ -44,10 +47,10 @@ public class LoginMenu {
 		
 		boolean loginList = ulDAO.login(username, password);
 		
-		if (loginList = true) {
+		if (loginList == true) {
 			LoginMenu = false;
 		} else {
-			LoginMenu = true;
+			continue;
 		};
 		
 		
@@ -142,7 +145,16 @@ public class LoginMenu {
 		}
 		
 	}
+		
+		} catch (InputMismatchException e) {
+		System.out.println("Please type in the proper value.");
+			LoginMenu = false;
+			displayLoginMenu();
+			} finally {System.out.println("Thank you");}
+		
 	}
+		
+		
 	}
 	
 }

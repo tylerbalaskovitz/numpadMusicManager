@@ -58,9 +58,9 @@ public class UserLoginDAO {
 				} 
 				if (password.equals(passwordtest)) {
 					System.out.println("Log in was successful");
-					Menu menu = new Menu();
+					// Menu menu = new Menu();
 					
-					menu.displayMenu();
+				//	menu.displayMenu();
 					
 					return true;
 					

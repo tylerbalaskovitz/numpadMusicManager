@@ -8,42 +8,27 @@ import com.revature.DAO.UserLoginDAO;
 import com.revature.models.LoginMenu;
 
 public class TestClass {
-	/*
-	@Test
-	public void TestLoginMenu() {
-		LoginMenu openLoginMenu = new LoginMenu();
-		boolean menutest = true;
-	openLoginMenu.displayLoginMenu() = menutest;
-		Assert.
-	}
-*/
+	
 	
 	@Test
 	public void testFailedLogin() {
 		UserLoginDAO openLoginMenu = new UserLoginDAO();
-		
-		
-	Assert.assertThat(openLoginMenu.login("asdlkfj", "aasdf") == false);
+	Assert.assertFalse(openLoginMenu.login("asdlkfj", "aasdf"));
 		
 		
 		
 	}
+	
 	
 	@Test
 	public void testPassingLogion() {
 		UserLoginDAO openLoginMenu = new UserLoginDAO();
 		
 		
-		Assert.assertThat(openLoginMenu.login("tyler", "password") == true);
+		Assert.assertTrue(openLoginMenu.login("tyler", "password"));
 		
 	}
 	
-	@Test
-	public void DeleteReocord() {
-		RecordsDAO recordTestDeletion = new RecordsDAO();
-		recordTestDeletion.deleteMusic(1);
-		Assert.assertTrue(true);
-	}
 	
 	
 	
