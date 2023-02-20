@@ -26,7 +26,7 @@ record_name_id_fk int REFERENCES record_names(record_id) ---FK used TO JOIN the 
 );
 
 INSERT INTO record_sales (purchase_location, purchase_price, sale_location, sale_price, record_name_id_fk)
-VALUES ('Amazon', '$35', 'NA', 'NA', 1);
+VALUES ('null', 'null', 'null', 'null', 5);
 
 SELECT * FROM record_sales;
 

@@ -28,6 +28,7 @@ public class LoginMenu {
 		System.out.println("1. Log in to the Program");
 		System.out.println("2. Create a new account");
 		System.out.println("3. Forgot your username/password?");
+		
 		try {int input = scan.nextInt(); //creating the option for people to navigate the login menu
 		scan.nextLine(); 
 		
@@ -138,6 +139,12 @@ public class LoginMenu {
 		
 			break;
 		}
+		
+		
+		
+		
+		
+		
 		default: {
 			//the default response if a user doesn't input an option
 			System.out.println("Please type in a valid response");
